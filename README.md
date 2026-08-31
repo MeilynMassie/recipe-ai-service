@@ -1,7 +1,7 @@
 # recipe-ai-service
 
 ## Description
-Recipe AI Service is a Python-based service that uses a vision-capable LLM to extract structured recipe information from uploaded images. It provides the AI functionality for the main Recipe API.
+Recipe AI Service is a Python-based service that uses a vision-capable LLM to extract structured recipe information from uploaded images or urls. It provides the AI functionality for the main Recipe API.
 
 WebApp: [Recipe API](https://github.com/MeilynMassie/recipe-api)
 

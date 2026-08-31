@@ -1,0 +1,3 @@
+To Run Ollama
+    1. Run venv
+    2. ollama serve
