@@ -1,3 +1,16 @@
 To Run Ollama
-    1. Run venv
+    1. source .venv/bin/activate
     2. ollama serve
+    3. python3 -m app.service.url_recipe_extractor  
+
+To Run FastAPI
+    1. python3 -m uvicorn app.main:app --reload
+
+TODO
+    [ ] Convert service to FastAPI
+    [ ] Create URL extraction endpoint
+    [ ] Create image extraction endpoint
+    [ ] Clean up/refine LLM prompt
+    [ ] Add basic error handling
+    [ ] Test responses
+    [ ] Connect Spring Boot

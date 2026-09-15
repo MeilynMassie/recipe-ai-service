@@ -22,9 +22,9 @@ class Source(BaseModel):
 class Recipe(BaseModel):
     name: str
     # desciption: Optional[str] = None
-    prep_time: Optional[str] = None
-    cook_time: Optional[str] = None
-    servings: Optional[str] = None
+    prep_time: Optional[int] = None
+    cook_time: Optional[int] = None
+    servings: Optional[int] = None
     ingredients: list[Ingredient]
     instructions: list[Instruction]
     source: Optional[Source] = None

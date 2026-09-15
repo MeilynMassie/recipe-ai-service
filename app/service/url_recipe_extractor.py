@@ -22,7 +22,8 @@ def extract_text_from_url(url: str) -> str:
     return soup.get_text(" ", strip=True)
 
 
-def extract_recipe_with_llm(text: str):
+def extract_recipe_from_url(url: str) -> str:
+    text = extract_text_from_url(url)
     response = chat(
         model="gemma3:4b",
         messages=[
@@ -51,15 +52,4 @@ def extract_recipe_with_llm(text: str):
         format=Recipe.model_json_schema()
     )
 
-    recipe = Recipe.model_validate_json(response.message.content)
-
-    print(recipe)
-
-
-url = "https://therecipecritic.com/white-chicken-enchiladas/"
-
-text = extract_text_from_url(url)
-
-recipe = extract_recipe_with_llm(text)
-
-print(recipe)
+    return Recipe.model_validate_json(response.message.content)
