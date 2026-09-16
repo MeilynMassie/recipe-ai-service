@@ -17,5 +17,5 @@ def health_check():
 
 @app.post("/extract/url")
 def extract_url(request: RecipeUrlRequest):
-    recipe = extract_recipe_from_url(request.url)
+    print(f"URL: {request.url}")
     return extract_recipe_from_url(request.url)

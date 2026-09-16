@@ -1,3 +1,5 @@
+Python Version = Python 3.12.14
+
 To Run Ollama
     1. source .venv/bin/activate
     2. ollama serve
