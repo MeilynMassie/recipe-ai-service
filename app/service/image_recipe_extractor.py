@@ -2,8 +2,10 @@
 
 from ollama import chat
 
-def extract_recipe_from_image(url: str) -> str:
-    img_base_path = "../static/img/recipe"
+# TODO: Fix the whole shabang
+# def extract_recipe_from_image(url: str) -> str:
+def extract_recipe_from_image():
+    img_base_path = "app/static/img/recipe"
 
     response = chat(
         model="gemma3:4b",
@@ -17,3 +19,6 @@ def extract_recipe_from_image(url: str) -> str:
     )
 
     print(response.message.content)
+
+
+extract_recipe_from_image()
