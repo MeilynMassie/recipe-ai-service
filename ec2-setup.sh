@@ -12,19 +12,22 @@ PYTHON_BIN="python${PYTHON_VERSION}"
 # Installs
 sudo apt update
 sudo apt install -y "$PYTHON_BIN" "${PYTHON_BIN}-venv"
+echo "Downloaded python${PYTHON_VERSION} "
 
 # Ollama - the installer sets up its own systemd service (ollama.service),
 # enabled and started automatically, bound to localhost:11434 by default.
 curl -fsSL https://ollama.com/install.sh | sh
 ollama pull gemma3:4b
+echo "Downloaded Ollama"
 
 # git clone https://github.com/MeilynMassie/recipe-ai-service.git
 
 # .venv
-cd recipe-ai-service
 "$PYTHON_BIN" -m venv .venv
 source .venv/bin/activate
+echo "Created .venv"
 pip install -r requirements.txt
+echo "Downloaded libraries"
 
 # Run the API as a systemd service so it restarts on crash/reboot instead of
 # needing a manually-kept-alive terminal session.
