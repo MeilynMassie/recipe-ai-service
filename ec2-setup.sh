@@ -5,20 +5,24 @@ set -euo pipefail
 # gemma3:4b is ~3.3GB on disk/in memory, so anything under 8 GiB RAM
 # (e.g. t3.medium) runs too close to the edge alongside the OS + app.
 
+# Python version: override with `PYTHON_VERSION=3.14 ./ec2-setup.sh` or `./ec2-setup.sh 3.14`
+PYTHON_VERSION="${1:-${PYTHON_VERSION:-3.12}}"
+PYTHON_BIN="python${PYTHON_VERSION}"
+
 # Installs
 sudo apt update
-sudo apt install -y python3.12 python3.12-venv
+sudo apt install -y "$PYTHON_BIN" "${PYTHON_BIN}-venv"
 
 # Ollama - the installer sets up its own systemd service (ollama.service),
 # enabled and started automatically, bound to localhost:11434 by default.
 curl -fsSL https://ollama.com/install.sh | sh
 ollama pull gemma3:4b
 
-git clone https://github.com/MeilynMassie/recipe-ai-service.git
+# git clone https://github.com/MeilynMassie/recipe-ai-service.git
 
 # .venv
 cd recipe-ai-service
-python3.12 -m venv .venv
+"$PYTHON_BIN" -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 
