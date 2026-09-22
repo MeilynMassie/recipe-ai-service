@@ -1,5 +1,6 @@
-# OVERVIEW: Takes an image upload and extracts necessary info for recipe
-
+""" OVERVIEW:
+Takes an image upload and extracts necessary info for recipe
+"""
 from ollama import chat
 
 # TODO: Fix the whole shabang
